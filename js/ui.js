@@ -1,6 +1,9 @@
 import api from "./api.js"
 
 const ui = {
+    limparFomulario (){
+        document.getElementById("pensamento-form").reset();
+    },
     async renderizarPensamentos(){
         const listaPensamentos = document.getElementById("lista-pensamentos")
 
@@ -10,6 +13,8 @@ const ui = {
         } catch  {
             alert('Erro ao renderizar pensamentos')
         }
+
+       
     },
 
     adicionarPensamentoNaLista(pensamento){
