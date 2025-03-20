@@ -1,17 +1,18 @@
+const URL_BASE = "http://localhost:3000"
+
 const api = {
     async buscarPensamentos() {
         try {
-            const response = await fetch('http://localhost:3000/pensamentos')
+            const response = await fetch(`${URL_BASE}/pensamentos`)
             return await response.json()
         } catch {
             alert('Erro ao buscar pensamentos')
-            throw error;
-            
+            throw error;            
         }
     },
     async salvarPensamentos(pensamento) {
         try {
-            const response = await fetch('http://localhost:3000/pensamentos', {
+            const response = await fetch(`${URL_BASE}/pensamentos`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -21,23 +22,21 @@ const api = {
             return await response.json()
         } catch {
             alert('Erro ao salvar pensamentos')
-            throw error;
-            
+            throw error;            
         }
     },
     async buscarPensamentoPorId(id) {
         try {
-            const response = await fetch(`http://localhost:3000/pensamentos/${id}`)
+            const response = await fetch(`${URL_BASE}/pensamentos/${id}`)
             return await response.json()
         } catch {
             alert('Erro ao buscar pensamento')
-            throw error;
-            
+            throw error;            
         }
     },
     async editarPensamentos(pensamento) {
         try {
-            const response = await fetch(`http://localhost:3000/pensamentos/${pensamento.id}`, {
+            const response = await fetch(`${URL_BASE}/pensamentos${pensamento.id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -47,23 +46,20 @@ const api = {
             return await response.json()
         } catch {
             alert('Erro ao editar pensamento')
-            throw error;
-            
+            throw error;            
         }
     },
     async excluirPensamentos(id) {
         try {
-            const response = await fetch(`http://localhost:3000/pensamentos/${id}`, {
+            const response = await fetch(`${URL_BASE}/pensamentos/${id}`, {
                 method: "DELETE",                
             })
             
         } catch {
             alert('Erro ao excluir pensamento')
-            throw error;
-            
+            throw error;            
         }
-    },
-    
+    },    
 }
 
 export default api;
